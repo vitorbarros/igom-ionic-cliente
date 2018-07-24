@@ -1,0 +1,19 @@
+<ion-header>
+    <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+        <img alt="logo" src="../assets/imgs/Logo_canto.png">
+    </ion-title>
+</ion-header>
+
+
+<ion-content class="tabsService" padding>
+    <ion-tabs>
+        <ion-tab [root]="acompanhanteRoot" tabIcon="iconAcompanhante"></ion-tab>
+        <ion-tab [root]="fixoRoot" tabIcon="iconFixo"></ion-tab>
+    </ion-tabs>
+</ion-content>
+<ion-footer>
+
+</ion-footer>

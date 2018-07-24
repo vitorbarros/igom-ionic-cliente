@@ -1,0 +1,21 @@
+.info-acompanhante {
+  background-color: #2a2c2c;
+  width: 100%;
+  height: 100%;
+
+  ion-row {
+    ion-col {
+      ion-img {
+        width: 90px;
+        float: left;
+        min-height: 80px;
+        background-color: transparent;
+      }
+      .title-service {
+        color: #fff;
+        font-size: 19px;
+        margin-top: 15px;
+      }
+    }
+  }
+}

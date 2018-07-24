@@ -1,0 +1,39 @@
+ion-header {
+  background-color: #fafafa;
+  ion-title {
+    float: right;
+    img {
+      height: 30px;
+      margin-top: 8px;
+    }
+  }
+  .button-md {
+    background-color: transparent;
+    box-shadow: none;
+    font-weight: bold;
+    color: #5c5c5c;
+    font-size: 30px;
+    padding: 0px;
+    margin-left: 10px;
+  }
+}
+
+.tabsService {
+
+  .ion-ios-iconAcompanhante,
+  .ion-md-iconAcompanhante {
+    content: url(../assets/imgs/tabs_acompanhante.png);
+    width: 50px;
+  }
+
+  .ion-ios-iconFixo,
+  .ion-md-iconFixo {
+    content: url(../assets/imgs/tabs_fixo.png);
+    width: 50px;
+  }
+
+  .tabs-md .tab-button[aria-selected=true] {
+    background-color: #d6d6d6;
+    opacity: unset;
+  }
+}
