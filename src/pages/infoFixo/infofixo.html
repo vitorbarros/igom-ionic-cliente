@@ -1,1 +1,28 @@
-teste 2
+<ion-content class="info-fixo" no-padding="">
+
+    <ion-row>
+        <ion-col class="col 12">
+            <ion-col class="col 3">
+                <ion-img src="../assets/imgs/fixo.png"></ion-img>
+            </ion-col>
+            <ion-col class="col 9">
+                <div class="title-service">Protetor Fixo</div>
+            </ion-col>
+        </ion-col>
+    </ion-row>
+
+    <ion-card>
+        <ion-title>Endereço da Missão</ion-title>
+        <ion-item no-padding>
+            <ion-label floating> Informe o local:</ion-label>
+            <ion-input></ion-input>
+        </ion-item>
+        <ion-title>Datalhes da Missão</ion-title>
+        <ion-item no-padding>
+            <ion-textarea placeholder="Ex.: Buscar meu filho no colegio."></ion-textarea>
+        </ion-item>
+
+        <button ion-button (click)="infoAcompa()">Prosseguir</button>
+    </ion-card>
+
+</ion-content>
