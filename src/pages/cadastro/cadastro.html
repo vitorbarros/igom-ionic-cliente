@@ -6,27 +6,27 @@
 
 <ion-content class="cadastro" padding>
   <div class="form-cadastro">
-    <ion-item>
-      <ion-input placeholder="name" type="text" [(ngModel)]="user.name"
-                 [ngModelOptions]="{standalone: true}"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input type="number" placeholder="telefone" [(ngModel)]="user.tel"
-                 [ngModelOptions]="{standalone: true}"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input placeholder="email" type="email" [(ngModel)]="user.email"
-                 [ngModelOptions]="{standalone: true}"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input type="password" placeholder="senha" [(ngModel)]="user.password"
-                 [ngModelOptions]="{standalone: true}"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input type="password" placeholder="confirmar senha" [(ngModel)]="user.confirmPassword"
-                 [ngModelOptions]="{standalone: true}"></ion-input>
-    </ion-item>
-    <button class="cadastro-button" ion-button (click)="storeUser()">Confirmar Cadastro</button>
+    <form [formGroup]="register" (ngSubmit)="storeUser()">
+      <ion-item>
+        <ion-input placeholder="name" type="text" formControlName="name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="number" placeholder="celular" formControlName="tel" maxlength="11" minlength="11"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input placeholder="email" type="email" formControlName="email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="password" placeholder="senha" formControlName="password"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="password" placeholder="confirmar senha" formControlName="confirmPassword"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="err.error">
+        {{err.message}}
+      </ion-item>
+      <button class="cadastro-button" ion-button type="submit">Confirmar Cadastro</button>
+    </form>
   </div>
 </ion-content>
 <ion-footer>
