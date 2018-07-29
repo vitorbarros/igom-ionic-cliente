@@ -3,7 +3,6 @@ import {NavController} from 'ionic-angular';
 import {User} from "../../models/user";
 import {UserService} from "../../services/userService";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {FieldsValidation} from "../../services/fieldsValidation";
 
 @Component({
   selector: 'page-cadastro',
@@ -13,14 +12,19 @@ export class CadastroPage {
 
   public user: User;
   public err: any;
+  private success: any;
   private register: FormGroup;
-  private fieldsValidation: FieldsValidation;
 
   constructor(public navCtrl: NavController, private userService: UserService, private formBuilder: FormBuilder) {
 
     this.err = {
       error: false,
-      message: ''
+      messages: {}
+    };
+
+    this.success = {
+      success: false,
+      message: ""
     };
 
     this.register = this.formBuilder.group({
@@ -33,29 +37,36 @@ export class CadastroPage {
 
   }
 
+  /**
+   * @desc Método que faz o insert do usuario na base de dados
+   */
   storeUser() {
 
-
-    this.fieldsValidation = new FieldsValidation(this.register);
-    this.fieldsValidation.validate()
+    this.user = new User(this.register.value);
+    this.user.validate()
       .subscribe(
-        (data) => {
-          console.log(data);
+        (success) => {
+          this.userService.store(this.user)
+            .subscribe(
+              (user) => {
+                this.err.error = false;
+                this.err.messages = {};
+                this.success.success = true;
+                this.success.message = "Cadastro realizado com sucesso. Acesse seu e-mail para ativar sua conta.";
+                this.register.reset();
+              },
+              (err) => {
+                this.err.error = true;
+                this.err.messages = {};
+                this.err.messages.general = err;
+              }
+            )
         },
         (err) => {
-          console.log(err);
+          this.err.error = true;
+          this.err.messages = err;
         }
       )
-
-
-    // this.user = new User(this.register.value);
-    //
-    //
-    // console.log(this.user);
-    // console.log(this.register);
-
-
-    //this.userService.store(this.user);
   }
 
   closeModal() {

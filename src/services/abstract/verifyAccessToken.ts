@@ -107,9 +107,8 @@ export class VerifyAccessToken {
             observer.complete();
           },
           (err) => {
-            //TODO implementar handleerror
-            console.log(err);
             observer.error(err);
+            observer.complete();
           }
         )
     });

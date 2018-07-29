@@ -22,9 +22,31 @@
       <ion-item>
         <ion-input type="password" placeholder="confirmar senha" formControlName="confirmPassword"></ion-input>
       </ion-item>
-      <ion-item *ngIf="err.error">
-        {{err.message}}
+
+      <!-- Criar component -->
+      <ion-item *ngIf="success.success && success.message" text-wrap>
+        {{success.message}}
       </ion-item>
+      <ion-item *ngIf="err.error && err.messages.required" text-wrap>
+        {{err.messages.required}}
+      </ion-item>
+      <ion-item *ngIf="err.error && err.messages.maxLengthAndMinLength" text-wrap>
+        {{err.messages.maxLengthAndMinLength}}
+      </ion-item>
+      <ion-item *ngIf="err.error && err.messages.maxLength" text-wrap>
+        {{err.messages.maxLength}}
+      </ion-item>
+      <ion-item *ngIf="err.error && err.messages.minLength" text-wrap>
+        {{err.messages.minLength}}
+      </ion-item>
+      <ion-item *ngIf="err.error && err.messages.pattern" text-wrap>
+        {{err.messages.pattern}}
+      </ion-item>
+      <ion-item *ngIf="err.error && err.messages.general" text-wrap>
+        {{err.messages.general}}
+      </ion-item>
+      <!-- Criar component -->
+
       <button class="cadastro-button" ion-button type="submit">Confirmar Cadastro</button>
     </form>
   </div>

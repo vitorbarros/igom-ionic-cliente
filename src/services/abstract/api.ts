@@ -34,8 +34,6 @@ export class API extends VerifyAccessToken {
         .subscribe(
           (accessToken: AccessToken) => {
 
-            console.log(accessToken);
-
             this.httpOptions = {
               headers: new HttpHeaders({
                 'Content-Type': 'application/json',
@@ -46,18 +44,19 @@ export class API extends VerifyAccessToken {
             this.http.post(this.APIBaseURL + url, data.toJson(), this.httpOptions)
               .subscribe(
                 (data) => {
-                  console.log(data);
+                  observer.next(data);
+                  observer.complete();
                 },
                 (err) => {
-                  //TODO implementar handleerror
-                  console.log(err);
+                  observer.error(err);
+                  observer.complete();
                 }
               )
 
           },
           (err) => {
-            //TODO implementar handleerror
-            console.log(err);
+            observer.error(err);
+            observer.complete();
           }
         )
     });
