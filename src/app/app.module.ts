@@ -10,6 +10,8 @@ import {AcompanhantePage} from '../pages/serviceAcompanhante/acompanhante';
 import {FixoPage} from '../pages/serviceFixo/fixo';
 import {InfoacompanhantePage} from '../pages/infoAcompanhante/infoacompanhante';
 import {InfofixoPage} from '../pages/infoFixo/infofixo';
+import {PagamentoPage} from '../pages/pagamento/pagamento';
+import {BuscandoPage} from '../pages/buscando/buscando';
 
 
 import {StatusBar} from '@ionic-native/status-bar';
@@ -24,7 +26,9 @@ import {SplashScreen} from '@ionic-native/splash-screen';
         AcompanhantePage,
         FixoPage,
         InfoacompanhantePage,
-        InfofixoPage
+        InfofixoPage,
+        PagamentoPage,
+        BuscandoPage
 
     ],
     imports: [
@@ -40,7 +44,9 @@ import {SplashScreen} from '@ionic-native/splash-screen';
         AcompanhantePage,
         FixoPage,
         InfoacompanhantePage,
-        InfofixoPage
+        InfofixoPage,
+        PagamentoPage,
+        BuscandoPage
 
     ],
     providers: [

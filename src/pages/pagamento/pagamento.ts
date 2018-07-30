@@ -1,17 +1,16 @@
 import {Component} from '@angular/core';
 import {NavController} from 'ionic-angular';
-import {PagamentoPage} from "../pagamento/pagamento";
+import {BuscandoPage} from "../buscando/buscando";
 
 @Component({
-    selector: 'page-infoacompanhante',
-    templateUrl: 'infoacompanhante.html'
-
+    selector: 'page-pagamento',
+    templateUrl: 'pagamento.html'
 })
-export class InfoacompanhantePage {
-
+export class PagamentoPage {
     tabBarElement: any;
 
     constructor(public navCtrl: NavController) {
+
         this.tabBarElement = document.querySelector('.tabbar.show-tabbar');
     }
 
@@ -23,7 +22,7 @@ export class InfoacompanhantePage {
         this.tabBarElement.style.display = 'flex';
     }
 
-    pagamento() {
-        this.navCtrl.push(PagamentoPage);
+    buscar() {
+        this.navCtrl.push(BuscandoPage);
     }
 }
