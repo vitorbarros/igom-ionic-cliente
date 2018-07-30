@@ -5,27 +5,54 @@
 </ion-header>
 
 <ion-content class="cadastro" padding>
-
     <div class="form-cadastro">
-        <ion-item>
-            <ion-input placeholder="nome"></ion-input>
-        </ion-item>
-        <ion-item>
-            <ion-input type="number" placeholder="telefone"></ion-input>
-        </ion-item>
-        <ion-item>
-            <ion-input placeholder="email"></ion-input>
-        </ion-item>
-        <ion-item>
-            <ion-input placeholder="endereço"></ion-input>
-        </ion-item>
-        <ion-item>
-            <ion-input type="password" placeholder="senha"></ion-input>
-        </ion-item>
-        <ion-item>
-            <ion-input type="password" placeholder="confirmar senha"></ion-input>
-        </ion-item>
-        <button class="cadastro-button" ion-button>Confirmar Cadastro</button>
+        <form [formGroup]="register" (ngSubmit)="storeUser()">
+            <ion-item>
+                <ion-input placeholder="name" type="text" formControlName="name"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-input type="number" placeholder="celular" formControlName="tel" maxlength="11"
+                           minlength="11"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-input placeholder="email" type="email" formControlName="email"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-input type="password" placeholder="senha" formControlName="password"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-input type="password" placeholder="confirmar senha" formControlName="confirmPassword"></ion-input>
+            </ion-item>
+
+            <!-- Criar component -->
+            <ion-item *ngIf="success.success" text-wrap>
+                Cadastro realizado com sucesso. <a (click)="goToLogin()">Clique aqui</a> para entrar no APP!
+            </ion-item>
+            <ion-item *ngIf="err.error && err.messages.required" text-wrap>
+                {{err.messages.required}}
+            </ion-item>
+            <ion-item *ngIf="err.error && err.messages.maxLengthAndMinLength" text-wrap>
+                {{err.messages.maxLengthAndMinLength}}
+            </ion-item>
+            <ion-item *ngIf="err.error && err.messages.maxLength" text-wrap>
+                {{err.messages.maxLength}}
+            </ion-item>
+            <ion-item *ngIf="err.error && err.messages.minLength" text-wrap>
+                {{err.messages.minLength}}
+            </ion-item>
+            <ion-item *ngIf="err.error && err.messages.pattern" text-wrap>
+                {{err.messages.pattern}}
+            </ion-item>
+            <ion-item *ngIf="err.error && err.messages.general" text-wrap>
+                {{err.messages.general}}
+            </ion-item>
+            <ion-item *ngIf="err.error && err.messages.equals" text-wrap>
+                {{err.messages.equals}}
+            </ion-item>
+            <!-- Criar component -->
+
+            <button class="cadastro-button" ion-button type="submit">Confirmar Cadastro</button>
+        </form>
     </div>
 </ion-content>
 <ion-footer>
