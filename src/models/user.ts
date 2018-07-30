@@ -18,7 +18,11 @@ export class User extends Model {
     },
     {field: "tel", translate: "Telefone", rules: {required: true, maxLength: 13, minLength: 13}},
     {field: "password", translate: "Senha", rules: {required: true}},
-    {field: "confirmPassword", translate: "Confirmar Senha", rules: {required: true, equals: "password"}}
+    {
+      field: "confirmPassword",
+      translate: "Confirmar Senha",
+      rules: {required: true, equalsField: "password", translate: "Senha"}
+    }
   ];
 
   public static baseURL = '/api/V1/people/clients';

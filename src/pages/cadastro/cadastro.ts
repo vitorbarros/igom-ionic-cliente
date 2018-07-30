@@ -3,6 +3,7 @@ import {NavController} from 'ionic-angular';
 import {User} from "../../models/user";
 import {UserService} from "../../services/userService";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {LoginPage} from "../login/login";
 
 @Component({
   selector: 'page-cadastro',
@@ -52,7 +53,6 @@ export class CadastroPage {
                 this.err.error = false;
                 this.err.messages = {};
                 this.success.success = true;
-                this.success.message = "Cadastro realizado com sucesso. Acesse seu e-mail para ativar sua conta.";
                 this.register.reset();
               },
               (err) => {
@@ -71,5 +71,9 @@ export class CadastroPage {
 
   closeModal() {
     this.navCtrl.pop();
+  }
+
+  goToLogin() {
+    this.navCtrl.push(LoginPage);
   }
 }

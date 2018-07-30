@@ -41,11 +41,10 @@ export class VerifyAccessToken {
             this.storeToken()
               .subscribe(
                 (data) => {
-                  console.log(data);
+                  console.log('successo ao recuperar a token -----> ', data);
                 },
                 (err) => {
-                  //TODO implementar handleerror
-                  console.log(err);
+                  console.log('erro ao recuperar o token ------> ', err);
                 }
               );
           } else {
@@ -57,11 +56,10 @@ export class VerifyAccessToken {
               this.storeToken()
                 .subscribe(
                   (data) => {
-                    console.log(data);
+                    console.log('successo ao recuperar a token -----> ', data);
                   },
                   (err) => {
-                    //TODO implementar handleerror
-                    console.log(err);
+                    console.log('erro ao recuperar o token ------> ', err);
                   }
                 );
             }
@@ -72,11 +70,10 @@ export class VerifyAccessToken {
           this.storeToken()
             .subscribe(
               (data) => {
-                console.log(data);
+                console.log('successo ao recuperar a token -----> ', data);
               },
               (err) => {
-                //TODO implementar handleerror
-                console.log(err);
+                console.log('erro ao recuperar o token ------> ', err);
               }
             );
         }

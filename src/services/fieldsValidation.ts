@@ -15,6 +15,7 @@ export class FieldsValidation {
       let messageMaxLength = "";
       let messageMinLength = "";
       let messagePattern = "";
+      let messageEquals = "";
 
       let err = false;
       let msgRequired = false;
@@ -61,9 +62,14 @@ export class FieldsValidation {
             err = true;
           }
         }
-      }
 
-      //TODO IMPLEMENTAR O EQUALS
+        if (model.getFields()[i].rules.equalsField) {
+          if (model[model.getFields()[i].field].toString() !== model[model.getFields()[i].rules.equalsField].toString()) {
+            messageEquals = "O valor do campo " + model.getFields()[i].translate + " precisa ser igual ao valor do campo " + model.getFields()[i].rules.translate;
+            err = true;
+          }
+        }
+      }
 
       if (err) {
         messageRequired = messageRequired.substr(0, messageRequired.length - 2) + " são obrigatórios.";
@@ -73,6 +79,7 @@ export class FieldsValidation {
           maxLength: messageMaxLength,
           minLength: messageMinLength,
           pattern: messagePattern,
+          equals: messageEquals
         });
         observer.complete();
       } else {

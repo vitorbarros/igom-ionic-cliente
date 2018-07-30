@@ -18,6 +18,7 @@ import {API} from "../services/abstract/api";
 import {StorageIGOM} from "../services/abstract/storageIgom";
 import {VerifyAccessToken} from "../services/abstract/verifyAccessToken";
 import {UserService} from "../services/userService";
+import {LoginService} from "../services/loginService";
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import {UserService} from "../services/userService";
     API,
     StorageIGOM,
     VerifyAccessToken,
-    UserService
+    UserService,
+    LoginService
   ]
 })
 export class AppModule {

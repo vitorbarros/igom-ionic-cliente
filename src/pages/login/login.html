@@ -1,28 +1,33 @@
 <ion-content class="login" padding>
 
-    <ion-img src="../assets/imgs/logo_igom.png"></ion-img>
+  <ion-img src="../assets/imgs/logo_igom.png"></ion-img>
 
-    <div class="form-login">
-        <ion-item>
-            <ion-input placeholder="email ou nº de celular"></ion-input>
-        </ion-item>
-        <ion-item>
-            <ion-input type="password" placeholder="senha"></ion-input>
-        </ion-item>
-        <button class="entrar-button" ion-button (click)="login()">entrar</button>
-        <button class="facebook-button" ion-button>entrar com facebook</button>
-    </div>
+  <div class="form-login">
+    <form [formGroup]="authenticateForm" (ngSubmit)="authenticate()">
+      <ion-item>
+        <ion-input placeholder="e-mail" type="email" formControlName="username"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="password" placeholder="senha" formControlName="password"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="err.error && err.messages.general" text-wrap>
+        {{err.messages.general}}
+      </ion-item>
+      <button class="entrar-button" ion-button type="submit">entrar</button>
+      <button class="facebook-button" ion-button>entrar com facebook</button>
+    </form>
+  </div>
 
-    <ion-grid>
-        <ion-row>
-            <ion-col col>
-                <button ion-button (click)="presentConfirm()">esqueci minha senha</button>
-            </ion-col>
-            <ion-col>
-                <button ion-button (click)="cadastro()">cadastra-se</button>
-            </ion-col>
-        </ion-row>
-    </ion-grid>
+  <ion-grid>
+    <ion-row>
+      <ion-col col>
+        <button ion-button (click)="presentConfirm()">esqueci minha senha</button>
+      </ion-col>
+      <ion-col>
+        <button ion-button (click)="cadastro()">cadastra-se</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
 <ion-footer>
 

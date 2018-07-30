@@ -24,8 +24,8 @@
       </ion-item>
 
       <!-- Criar component -->
-      <ion-item *ngIf="success.success && success.message" text-wrap>
-        {{success.message}}
+      <ion-item *ngIf="success.success" text-wrap>
+        Cadastro realizado com sucesso. <a (click)="goToLogin()">Clique aqui</a> para entrar no APP!
       </ion-item>
       <ion-item *ngIf="err.error && err.messages.required" text-wrap>
         {{err.messages.required}}
@@ -44,6 +44,9 @@
       </ion-item>
       <ion-item *ngIf="err.error && err.messages.general" text-wrap>
         {{err.messages.general}}
+      </ion-item>
+      <ion-item *ngIf="err.error && err.messages.equals" text-wrap>
+        {{err.messages.equals}}
       </ion-item>
       <!-- Criar component -->
 
