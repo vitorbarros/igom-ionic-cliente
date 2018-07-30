@@ -12,45 +12,45 @@ import {InfoacompanhantePage} from '../pages/infoAcompanhante/infoacompanhante';
 import {InfofixoPage} from '../pages/infoFixo/infofixo';
 
 @Component({
-    templateUrl: 'app.html'
+  templateUrl: 'app.html'
 
 })
 export class MyApp {
-    @ViewChild(Nav) nav: Nav;
+  @ViewChild(Nav) nav: Nav;
 
-    rootPage: any = LoginPage;
+  rootPage: any = HomePage;
 
-    pages: Array<{ title: string, component: any }>;
+  pages: Array<{ title: string, component: any }>;
 
-    constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
-        this.initializeApp();
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+    this.initializeApp();
 
-        // used for an example of ngFor and navigation
-        this.pages = [
-            {title: 'Login', component: LoginPage},
-            {title: 'Cadastro', component: CadastroPage},
-            {title: 'Home', component: HomePage},
-            {title: 'Acompanhante', component: AcompanhantePage},
-            {title: 'Fixo', component: FixoPage},
-            {title: 'Infoacompanhante', component: InfoacompanhantePage},
-            {title: 'Infofixo', component: InfofixoPage}
+    // used for an example of ngFor and navigation
+    this.pages = [
+      {title: 'Login', component: LoginPage},
+      {title: 'Cadastro', component: CadastroPage},
+      {title: 'Home', component: HomePage},
+      {title: 'Acompanhante', component: AcompanhantePage},
+      {title: 'Fixo', component: FixoPage},
+      {title: 'Infoacompanhante', component: InfoacompanhantePage},
+      {title: 'Infofixo', component: InfofixoPage}
 
-        ];
+    ];
 
-    }
+  }
 
-    initializeApp() {
-        this.platform.ready().then(() => {
-            // Okay, so the platform is ready and our plugins are available.
-            // Here you can do any higher level native things you might need.
-            this.statusBar.styleDefault();
-            this.splashScreen.hide();
-        });
-    }
+  initializeApp() {
+    this.platform.ready().then(() => {
+      // Okay, so the platform is ready and our plugins are available.
+      // Here you can do any higher level native things you might need.
+      this.statusBar.styleDefault();
+      this.splashScreen.hide();
+    });
+  }
 
-    openPage(page) {
-        // Reset the content nav to have just this page
-        // we wouldn't want the back button to show in this scenario
-        this.nav.setRoot(page.component);
-    }
+  openPage(page) {
+    // Reset the content nav to have just this page
+    // we wouldn't want the back button to show in this scenario
+    this.nav.setRoot(page.component);
+  }
 }

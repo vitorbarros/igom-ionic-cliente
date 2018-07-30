@@ -17,7 +17,9 @@ let httpOptions = {
 @Injectable()
 export class VerifyAccessToken {
 
-  protected APIBaseURL = 'http://localhost:8080';
+  //protected APIBaseURL = 'http://localhost:8080';
+
+  protected APIBaseURL = 'https://igom-api.herokuapp.com';
 
   private json: any;
   private accessToken: AccessToken;

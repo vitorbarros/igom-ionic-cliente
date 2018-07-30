@@ -37,4 +37,32 @@ export class LoginService extends API {
         )
     });
   }
+
+  /**
+   * @desc Metodo que verifica se o usuario esta logado
+   * @returns {Observable<any>}
+   */
+  verifyIfUserIslogged(): Observable<any> {
+
+    return new Observable<any>((observer) => {
+
+      this.storage.get('user')
+        .subscribe(
+          (data) => {
+            let user = JSON.parse(data);
+            if (!user._id) {
+              observer.error(true);
+              observer.complete();
+            } else {
+              observer.next(true);
+              observer.complete();
+            }
+          },
+          (err) => {
+            observer.error(true);
+            observer.complete();
+          }
+        )
+    });
+  }
 }
