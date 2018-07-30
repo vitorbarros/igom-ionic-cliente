@@ -13,6 +13,8 @@ import {AcompanhantePage} from '../pages/serviceAcompanhante/acompanhante';
 import {FixoPage} from '../pages/serviceFixo/fixo';
 import {InfoacompanhantePage} from '../pages/infoAcompanhante/infoacompanhante';
 import {InfofixoPage} from '../pages/infoFixo/infofixo';
+import {PagamentoPage} from '../pages/pagamento/pagamento';
+import {BuscandoPage} from '../pages/buscando/buscando';
 
 import {API} from "../services/abstract/api";
 import {StorageIGOM} from "../services/abstract/storageIgom";
@@ -21,42 +23,50 @@ import {UserService} from "../services/userService";
 import {LoginService} from "../services/loginService";
 
 @NgModule({
-  declarations: [
-    MyApp,
-    LoginPage,
-    CadastroPage,
-    HomePage,
-    AcompanhantePage,
-    FixoPage,
-    InfoacompanhantePage,
-    InfofixoPage
-  ],
-  imports: [
-    BrowserModule,
-    IonicModule.forRoot(MyApp),
-    HttpClientModule
-  ],
-  bootstrap: [IonicApp],
-  entryComponents: [
-    MyApp,
-    LoginPage,
-    CadastroPage,
-    HomePage,
-    AcompanhantePage,
-    FixoPage,
-    InfoacompanhantePage,
-    InfofixoPage
-  ],
-  providers: [
-    StatusBar,
-    SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
-    API,
-    StorageIGOM,
-    VerifyAccessToken,
-    UserService,
-    LoginService
-  ]
+
+    declarations: [
+        MyApp,
+        LoginPage,
+        CadastroPage,
+        HomePage,
+        AcompanhantePage,
+        FixoPage,
+        InfoacompanhantePage,
+        InfofixoPage,
+        PagamentoPage,
+        BuscandoPage
+
+    ],
+    imports: [
+        BrowserModule,
+        IonicModule.forRoot(MyApp),
+        HttpClientModule
+    ],
+    bootstrap: [IonicApp],
+    entryComponents: [
+        MyApp,
+        LoginPage,
+        CadastroPage,
+        HomePage,
+        AcompanhantePage,
+        FixoPage,
+        InfoacompanhantePage,
+        InfofixoPage,
+        PagamentoPage,
+        BuscandoPage
+
+    ],
+    providers: [
+        StatusBar,
+        SplashScreen,
+        {provide: ErrorHandler, useClass: IonicErrorHandler},
+        API,
+        StorageIGOM,
+        VerifyAccessToken,
+        UserService,
+        LoginService
+    ]
+
 })
 export class AppModule {
 }
