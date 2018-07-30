@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {NavController} from 'ionic-angular';
+import {PagamentoPage} from "../pagamento/pagamento";
 
 @Component({
     selector: 'page-infofixo',
@@ -20,5 +21,9 @@ export class InfofixoPage {
 
     ionViewWillLeave() {
         this.tabBarElement.style.display = 'flex';
+    }
+
+    pagamento() {
+        this.navCtrl.push(PagamentoPage);
     }
 }

@@ -10,15 +10,18 @@ import {AcompanhantePage} from '../pages/serviceAcompanhante/acompanhante';
 import {FixoPage} from '../pages/serviceFixo/fixo';
 import {InfoacompanhantePage} from '../pages/infoAcompanhante/infoacompanhante';
 import {InfofixoPage} from '../pages/infoFixo/infofixo';
+import {PagamentoPage} from '../pages/pagamento/pagamento';
+import {BuscandoPage} from '../pages/buscando/buscando';
 
 @Component({
     templateUrl: 'app.html'
 
 })
 export class MyApp {
+
     @ViewChild(Nav) nav: Nav;
 
-    rootPage: any = LoginPage;
+    rootPage: any = HomePage;
 
     pages: Array<{ title: string, component: any }>;
 
@@ -33,7 +36,9 @@ export class MyApp {
             {title: 'Acompanhante', component: AcompanhantePage},
             {title: 'Fixo', component: FixoPage},
             {title: 'Infoacompanhante', component: InfoacompanhantePage},
-            {title: 'Infofixo', component: InfofixoPage}
+            {title: 'Infofixo', component: InfofixoPage},
+            {title: 'Pagamento', component: PagamentoPage},
+            {title: 'Buscando', component: BuscandoPage}
 
         ];
 

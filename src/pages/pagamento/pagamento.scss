@@ -1,0 +1,53 @@
+.page-pagamento {
+  width: 100%;
+  height: 100%;
+  background-color: #2a2c2c;
+  ion-card {
+    border-radius: 5px;
+    margin-top: 20%;
+    ion-title {
+      background-color: #4d4d4d;
+    }
+    .toolbar-title-md {
+      text-align: center;
+      color: #fff;
+      line-height: 45px;
+    }
+    ion-grid {
+      margin-bottom: 30px;
+      ion-row {
+        ion-col {
+          ion-input {
+            display: block;
+            margin: 0 auto;
+            border-bottom: 2px solid #4d4d4d;
+
+            text-decoration: none;
+          }
+          ion-list {
+            ion-item {
+              ion-select {
+                border-bottom: 2px solid #4d4d4d;
+              }
+            }
+          }
+          ion-item {
+            ion-datetime {
+              border-bottom: 2px solid #4d4d4d;
+              padding-top: 3px;
+            }
+          }
+        }
+      }
+    }
+    .button-prosseguir {
+      width: 100%;
+      margin: 0px;
+      background-color: #565656;
+      text-transform: unset;
+      color: #ffff;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+    }
+  }
+}
