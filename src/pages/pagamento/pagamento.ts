@@ -1,28 +1,46 @@
 import {Component} from '@angular/core';
-import {NavController} from 'ionic-angular';
+import {NavController, NavParams} from 'ionic-angular';
 import {BuscandoPage} from "../buscando/buscando";
+import {CreditCard} from "../../models/creditCard";
 
 @Component({
-    selector: 'page-pagamento',
-    templateUrl: 'pagamento.html'
+  selector: 'page-pagamento',
+  templateUrl: 'pagamento.html'
 })
 export class PagamentoPage {
-    tabBarElement: any;
 
-    constructor(public navCtrl: NavController) {
+  public tabBarElement: any;
+  private dadosMissao: any;
+  public err: any;
+  private card: CreditCard;
+  private creditCard: CreditCard;
 
-        this.tabBarElement = document.querySelector('.tabbar.show-tabbar');
-    }
+  constructor(public navCtrl: NavController, private navParams: NavParams) {
 
-    ionViewWillEnter() {
-        this.tabBarElement.style.display = 'none';
-    }
+    this.tabBarElement = document.querySelector('.tabbar.show-tabbar');
+    this.dadosMissao = navParams.get('dadosMissao');
 
-    ionViewWillLeave() {
-        this.tabBarElement.style.display = 'flex';
-    }
+    this.err = {
+      error: false,
+      messages: {}
+    };
+  }
 
-    buscar() {
-        this.navCtrl.push(BuscandoPage);
-    }
+  ionViewWillEnter() {
+    this.tabBarElement.style.display = 'none';
+  }
+
+  ionViewWillLeave() {
+    this.tabBarElement.style.display = 'flex';
+  }
+
+  buscar() {
+
+    this.card = new CreditCard();
+    console.log(this.dadosMissao);
+    console.log(this.card);
+
+
+    //this.navCtrl.push(BuscandoPage);
+  }
 }

@@ -21,51 +21,56 @@ import {StorageIGOM} from "../services/abstract/storageIgom";
 import {VerifyAccessToken} from "../services/abstract/verifyAccessToken";
 import {UserService} from "../services/userService";
 import {LoginService} from "../services/loginService";
+import {AgmCoreModule} from "@agm/core";
 
 @NgModule({
 
-    declarations: [
-        MyApp,
-        LoginPage,
-        CadastroPage,
-        HomePage,
-        AcompanhantePage,
-        FixoPage,
-        InfoacompanhantePage,
-        InfofixoPage,
-        PagamentoPage,
-        BuscandoPage
+  declarations: [
+    MyApp,
+    LoginPage,
+    CadastroPage,
+    HomePage,
+    AcompanhantePage,
+    FixoPage,
+    InfoacompanhantePage,
+    InfofixoPage,
+    PagamentoPage,
+    BuscandoPage
 
-    ],
-    imports: [
-        BrowserModule,
-        IonicModule.forRoot(MyApp),
-        HttpClientModule
-    ],
-    bootstrap: [IonicApp],
-    entryComponents: [
-        MyApp,
-        LoginPage,
-        CadastroPage,
-        HomePage,
-        AcompanhantePage,
-        FixoPage,
-        InfoacompanhantePage,
-        InfofixoPage,
-        PagamentoPage,
-        BuscandoPage
+  ],
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot(MyApp),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyBOMC3_bU9cT8LT4zYG2DKWJMTO8M-c6Ow',
+      libraries: ['places']
+    }),
+    HttpClientModule
+  ],
+  bootstrap: [IonicApp],
+  entryComponents: [
+    MyApp,
+    LoginPage,
+    CadastroPage,
+    HomePage,
+    AcompanhantePage,
+    FixoPage,
+    InfoacompanhantePage,
+    InfofixoPage,
+    PagamentoPage,
+    BuscandoPage
 
-    ],
-    providers: [
-        StatusBar,
-        SplashScreen,
-        {provide: ErrorHandler, useClass: IonicErrorHandler},
-        API,
-        StorageIGOM,
-        VerifyAccessToken,
-        UserService,
-        LoginService
-    ]
+  ],
+  providers: [
+    StatusBar,
+    SplashScreen,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    API,
+    StorageIGOM,
+    VerifyAccessToken,
+    UserService,
+    LoginService
+  ]
 
 })
 export class AppModule {

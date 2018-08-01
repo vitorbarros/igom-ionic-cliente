@@ -1,28 +1,33 @@
 <ion-content class="info-acompanhante" no-padding="">
 
-    <ion-row>
-        <ion-col class="col 12">
-            <ion-col class="col 3">
-                <ion-img src="../assets/imgs/acompanhante.png"></ion-img>
-            </ion-col>
-            <ion-col class="col 9">
-                <div class="title-service">Protetor Acompanhante</div>
-            </ion-col>
-        </ion-col>
-    </ion-row>
+  <ion-row>
+    <ion-col class="col 12">
+      <ion-col class="col 3">
+        <ion-img src="../assets/imgs/acompanhante.png"></ion-img>
+      </ion-col>
+      <ion-col class="col 9">
+        <div class="title-service">Protetor Acompanhante</div>
+      </ion-col>
+    </ion-col>
+  </ion-row>
 
-    <ion-card>
-        <ion-title>Endereço da Missão</ion-title>
-        <ion-item no-padding>
-            <ion-label floating> Informe o local:</ion-label>
-            <ion-input></ion-input>
-        </ion-item>
-        <ion-title>Datalhes da Missão</ion-title>
-        <ion-item no-padding>
-            <ion-textarea placeholder="Ex.: Buscar meu filho no colegio."></ion-textarea>
-        </ion-item>
+  <ion-card>
+    <ion-title>Endereço da Missão</ion-title>
+    <ion-item no-padding>
+      <ion-label floating> Informe o local:</ion-label>
+      <ion-input id="autocompleteAddress" type="text" [(ngModel)]="acompanhante.address"></ion-input>
+    </ion-item>
+    <ion-title>Datalhes da Missão</ion-title>
+    <ion-item no-padding>
+      <ion-textarea placeholder="Ex.: Buscar meu filho no colegio."
+                    [(ngModel)]="acompanhante.description"></ion-textarea>
+    </ion-item>
 
-        <button ion-button (click)="pagamento()">Prosseguir</button>
-    </ion-card>
+    <ion-item *ngIf="err.error && err.messages.general" text-wrap>
+      {{err.messages.general}}
+    </ion-item>
+
+    <button ion-button (click)="pagamento()">Prosseguir</button>
+  </ion-card>
 
 </ion-content>
