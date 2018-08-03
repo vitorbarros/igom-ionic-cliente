@@ -23,13 +23,14 @@ export class CreditCard extends Model {
 
     if (json) {
       this.brand = json.brand;
-      this.cardNumber = "55" + json.cardNumber;
+      this.cardNumber = json.cardNumber;
       this.securityCode = json.securityCode;
       this.expirationDate = json.expirationDate;
       this.holderName = json.holderName;
       this.cpf = json.cpf;
     }
   }
+
 
   toJson() {
     return {

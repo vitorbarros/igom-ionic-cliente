@@ -13,7 +13,15 @@ export class PagamentoPage {
   private dadosMissao: any;
   public err: any;
   private card: CreditCard;
-  private creditCard: CreditCard;
+
+  creditCard = {
+    brand: '',
+    cardNumber: '',
+    securityCode: '',
+    expirationDate: '',
+    holderName: '',
+    cpf: ''
+  };
 
   constructor(public navCtrl: NavController, private navParams: NavParams) {
 
@@ -36,11 +44,21 @@ export class PagamentoPage {
 
   buscar() {
 
-    this.card = new CreditCard();
-    console.log(this.dadosMissao);
-    console.log(this.card);
+    this.card = new CreditCard(this.creditCard);
+    this.card.validate()
+      .subscribe(
+        (data) => {
+          this.navCtrl.push(BuscandoPage, {
+            'creditCard': this.card,
+            'dadosMissao': this.dadosMissao
+          });
+        },
+        (err) => {
+          this.err.error = true;
+          this.err.messages = {};
+          this.err.messages.general = err;
+        }
+      );
 
-
-    //this.navCtrl.push(BuscandoPage);
   }
 }
